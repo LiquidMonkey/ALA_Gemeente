@@ -14,6 +14,31 @@ article{
 	margin-top: 15px;
 }
 
+/*USERPOST*/
+.userPost{
+    padding: 10px;
+
+    color: white;
+    background: #3e3e3e;
+}
+.userDetails{
+    
+}
+.userDetails h4{
+    padding: 10px 0px 5px 13px;
+}
+.userDetails p{
+    margin-bottom: 0px;
+}
+.userDetails small{
+    color: #aab3aa;
+
+    margin-top: 5px;
+}
+.userComment{
+    padding: 5px;
+}
+
 /*Login section*/
 #login-dp{
     min-width: 250px;
