@@ -10,6 +10,22 @@ article{
 	margin-top: 15px;
 }
 
+/*Carousel*/
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+   margin: auto;
+}
+.carousel-indicators,
+.carousel-control{
+    display: none;
+}
+#homeSlider:hover .carousel-indicators,
+#homeSlider:hover .carousel-control{
+    display: block;
+}
+
+
 /*FORM*/
 
 
