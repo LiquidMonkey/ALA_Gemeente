@@ -145,6 +145,18 @@
                   <p>Duis sit amet neque sed massa viverra pulvinar. Cras ultrices tempor risus, sagittis egestas quam venenatis vel. In luctus eu justo in consequat. Suspendisse in feugiat lacus, vitae maximus neque. Etiam non dictum lacus. Nam quis egestas dui. Pellentesque commodo vulputate metus, a pharetra nisl posuere eleifend. Vestibulum laoreet non mauris a laoreet. Morbi imperdiet ultricies sem vel egestas. Nam sed accumsan magna. Nam euismod interdum interdum. Vestibulum fringilla lectus vitae leo pretium, a sagittis enim tristique.</p>
                 </div><!--End of Comment-->
               </div><!--End of post-->
+              <button id="makeComment" type="submit" class="btn btn-default">Comment</button> 
+              <!--====================NOT DONE YET JUST BASE IDEA PROBABLY GONNA MAKE IT A TEXTAREA================-->
+              <div class="hidden col-md-5">
+                <form class="form-horizontal" role="form" method="post" action="postComment.php">
+                  <div class="form-group">
+                    <label for="FirstName" class="col-sm-2 control-label">Comment</label>
+                    <div class="col-sm-8 col-sm-2-pull">
+                        <input required type="text" name="FirstName" id="FirstName" class="form-control">
+                    </div>
+                </div>
+                </form>
+              </div>
             </div><!--End of col-md-5 first aka textBox-->
             <div class="col-md-5 text-center">
               <button type="button" class="btn btn-default">Afspraak</button>
@@ -162,8 +174,9 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
