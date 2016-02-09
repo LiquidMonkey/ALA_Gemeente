@@ -17,6 +17,7 @@ catch(PDOException $e) {
             Bestand: '.$e->getFile(). '<br />
             Foutmelding: '.$e->getMessage().'
         </p>
-        ';}
-
+        ';
+   trigger_error($msg);
+}
 ?>

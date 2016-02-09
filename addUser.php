@@ -1,62 +1,54 @@
 <?php
-
-// Verbinden met de mysql server
-$link = mysqli_connect("localhost", "root", "", "gemeente");
-
-// Verbindingscheck
-if($link === false){
-
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-
-}
+include_once("php/configDB.php");
 
 // Blokkeert vage user input voor veiligheid
-$first_name = mysqli_real_escape_string($link, $_POST['FirstName']);
+$first_name = $_POST['FirstName'];
 
-$middle_name = mysqli_real_escape_string($link, $_POST['MiddleName']);
+$middle_name = $_POST['MiddleName'];
 
-$last_name = mysqli_real_escape_string($link, $_POST['LastName']);
+$last_name = $_POST['LastName'];
 
-$dob = mysqli_real_escape_string($link, $_POST['DOB']);
+$dob = $_POST['DOB'];
 
-$street = mysqli_real_escape_string($link, $_POST['Street']);
+$street = $_POST['Street'];
 
-$streetnr = mysqli_real_escape_string($link, $_POST['SNumber']);
+$streetnr = $_POST['SNumber'];
 
-$postal = mysqli_real_escape_string($link, $_POST['Postal']);
+$postal = $_POST['Postal'];
 
-$city = mysqli_real_escape_string($link, $_POST['City']);
+$city = $_POST['City'];
 
-$pnumber = mysqli_real_escape_string($link, $_POST['Number']);
+$pnumber = $_POST['Number'];
 
-$email = mysqli_real_escape_string($link, $_POST['Mail']);
+$email = $_POST['Mail'];
 
-$password = mysqli_real_escape_string($link, $_POST['Password']);
+$password = $_POST['Password'];
 
 
 
 // Poging gegevens invoegen in de table van de database
-$sql = "INSERT INTO user (name, middleName, lastName, email, DOB, street, streetnum, postal, place, phoneNum, password)
-VALUES ('$first_name', '$middle_name', '$last_name', '$email', '$dob', '$street', '$streetnr', '$postal'
-, '$city', '$pnumber', '$password')";
+if (isset($_POST['post'])){
+	$sql = $db->prepare("INSERT INTO user (name, middleName, lastName, email, DOB, street, streetnum, postal, place, phoneNum, password)
+	VALUES ('$first_name', '$middle_name', '$last_name', '$email', '$dob', '$street', '$streetnr', '$postal'
+	, '$city', '$pnumber', '$password')");
 
-// Als het lukt, echo succes! 3 seconden later return naar form.php
-if(mysqli_query($link, $sql)){
+	//executes the given query above
+	$sql->execute();
+	
+	// Als het lukt, echo succes! 3 seconden later return naar form.php
+	echo "Records added successfully.";
 
-    echo "Records added successfully.";
-
-    function Redirect($url, $permanent = false)
-    {
-        header('Refresh: 3;' . $url, true, $permanent ? 301 : 302);
+	function Redirect($url, $permanent = false)
+	{
+	    header('Refresh: 3;' . $url, true, $permanent ? 301 : 302);
 
         exit();
     }
+
     Redirect('aanmelden.php', false);
 
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
 // Verbinding afbreken
-mysqli_close($link);
+die();
 ?>

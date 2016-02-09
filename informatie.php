@@ -1,35 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Testing database</title>
-</head>
-<body>
+    <head>
+    	<title>Testing database</title>
+    </head>
+    <body>
 <?php
 // Gegevens om in te loggen bij de PHP my admin.
-$username = "root";
-$password = "";
-$hostname = "localhost";
-// De database die je wilt benaderen
-$db = 'gemeente';
+include_once("php/configDB.php");
 
-//Maakt een connectie aan de database met gebruik van de gegevens.
-$dbhandle = mysqli_connect($hostname, $username, $password)
-or die("Kan niet verbinden aan de database");
-
-echo "Connected to MySQL<br>";
-
-//Kies vervolgens een database om te gebruiken.
-$selected = mysqli_select_db($dbhandle, $db)
-or die("Database: " . $db . " kan niet worden geselecteerd");
-
-echo ("<br>Database: " .$db . " geselecteerd<br>");
-
-//Connect aan en haalt * op uit het tabel gebruikers    * = alles
-$result = mysqli_query($dbhandle, "SELECT * FROM user");
+//preparing query
+$query = $db->prepare("SELECT * FROM user");
+//executing on given query
+$query->execute();
+//preparing output variable
+$output = "";
 
 //Terwijl alle gegevens uit $result (oftewel gebruikers) Echo alle gegevens.
 // MYSQLI_BOTH trekt STRINGS & INTEGERS uit het tabel.
-while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
     echo "<br><br><i>Alle gevraagde informatie staat hier onder:</i><br><br>" .
 
@@ -50,8 +38,8 @@ while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
         "<br><strong>ID:</strong>".$row{'userId'};
 }
 ?>
-	<br><br>
+    <br><br>
 
-<a href="informatie.php">Ververs het scherm</a>
-</body>
+    <a href="informatie.php">Ververs het scherm</a>
+    </body>
 </html>

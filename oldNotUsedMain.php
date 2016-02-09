@@ -1,5 +1,11 @@
 <?php
 
+
+!---------------------!
+   NOT USED ANYMORE
+!_____________________!
+Methode is not up to standards anymore
+
 /*
   $host="localhost";
   $user="root";

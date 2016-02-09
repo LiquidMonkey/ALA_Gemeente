@@ -89,7 +89,7 @@
         <!--========================================== End of nav ========================================-->
 
         <section class="container-fluid col-md-12">
-            <form class="form-horizontal" method="post" action="addUser.php"><!--on submit run addUser.php (which adds a user)-->
+            <form class="form-horizontal" method="post" action="addUser.php" autocomplete="on"><!--on submit run addUser.php (which adds a user)-->
                 <div class="form-group">
                     <label for="FirstName" class="col-sm-2 control-label">Voornaam:</label>
                     <div class="col-sm-8 col-sm-2-pull">
@@ -141,7 +141,7 @@
                 <div class="form-group">
                     <label for="Number" class="col-sm-2 control-label">Tel. Nr.:</label>
                     <div class="col-sm-8 col-sm-2-pull">
-                        <input required type="text" name="Number" id="Number" class="form-control">
+                        <input required type="tel" name="Number" id="Number" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
