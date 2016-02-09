@@ -8,7 +8,7 @@ $database = 'gemeente';
 try {
     $db = new PDO('mysql:host='.$host. ';dbname='.$database, $username, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->query("SET SESSION sql_mode - 'ANSI,ONLY_FULL_GROUP_BY'");
+    $db->query("SET SESSION sql_mode = 'ANSI,ONLY_FULL_GROUP_BY'");
 }
 catch(PDOException $e) {
     $msg = '

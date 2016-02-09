@@ -160,7 +160,7 @@
                     
                 </div>
                 <div class="col-sm-3 col-sm-9-push">
-                    <button type="submit" class="btn btn-default">Zend</button>
+                    <button type="submit" name="post" class="btn btn-default">Zend</button>
                 </div>
                 
             </form>

@@ -7,6 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Gemeente</title>
 
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/jpg" href="./media/logo.jpg">
     <!-- Bootstrap -->
     <link href="css/normalize.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -90,7 +92,7 @@
     <section class="container-fluid">
       <article>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 pull-left">
             <div id="homeSlider" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
@@ -134,8 +136,8 @@
               </a>
             </div>
           </div>
-          <div class="rightSide" class="col-md-6 col-md-6-pull">
-            <div class="col-md-5 text-left postSection">
+          <div class="col-md-6 pull-right">
+            <div class="col-md-6 text-left postSection">
               <div class="userPost">
                 <div class="userDetails">
                   <h4><p class="userName">Oh_My_Little_Baby_Girl</p> <small>Gepost op 21-3-2016</small></h4>
@@ -147,7 +149,7 @@
               </div><!--End of post-->
               <button id="makeComment" type="submit" class="btn btn-default">Comment</button> 
               <!--====================NOT DONE YET JUST BASE IDEA PROBABLY GONNA MAKE IT A TEXTAREA================-->
-              <div class="hidden col-md-5">
+              <div class="hidden col-md-12">
                 <form class="form-horizontal" role="form" method="post" action="postComment.php">
                   <div class="form-group">
                     <label for="FirstName" class="col-sm-2 control-label">Comment</label>
@@ -158,10 +160,10 @@
                 </form>
               </div>
             </div><!--End of col-md-5 first aka textBox-->
-            <div class="col-md-5 text-center">
+            <div class="col-md-12 text-center">
               <button type="button" class="btn btn-default">Afspraak</button>
             </div>
-            <div class="col-md-5 text-center">
+            <div class="col-md-12 text-center">
               Vraag section
             </div>
           </div>
