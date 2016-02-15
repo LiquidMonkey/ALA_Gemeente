@@ -210,7 +210,7 @@ footer > div > ul{
     padding-left: 15px;
 }
 footer > div:first-of-type > ul{
-    border: 0px solid transparent;
+    border-left: solid black 1px;
 }
 footer > div > ul{
     min-height: 85px;
@@ -220,8 +220,8 @@ span[class*="flaticon"]{
     display: inline;
     line-height: 30px;
 }
-.flaticon-twittericon{
-    
+.twitterIcon{
+    background: url('../media/twitter.png');
 }
 
 /*MEDIA*/
@@ -242,12 +242,13 @@ span[class*="flaticon"]{
     article:first-of-type{
         margin-top: 0px;
     }
-
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
+    footer > div:first-of-type > ul{
+        border: 1px solid transparent;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
