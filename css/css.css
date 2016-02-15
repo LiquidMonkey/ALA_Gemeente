@@ -24,23 +24,39 @@ body{
     margin: 2px 6px;
 }
 
-.col-md-6{
+article{
+    min-height: 467px;
+
 	background: #3e3e3e;
 	text-align: center;
 }
 
-article:first-of-type{
-	margin-top: 0px;
+/*afspraak maken*/
+.afspraakButton{
+    width: 100%;
+    height: 300px;
+
+    background: url('../media/conversation.png') center center no-repeat;
+    background-size: contain;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+    line-height: 365px;
 }
-article{
-	margin-top: 15px;
+.afspraakButton:hover{
+    color: #800000;
+    background: url('../media/conversationInverse.png') center center no-repeat;
+    background-size: contain;
 }
 
-/*Carousel*/
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 70%;
-  margin: auto;
+/*Carousel (#homeSlider)*/
+#homeSlider{
+    background: white;
+}
+.carousel-inner img{
+    min-height: 500px;
+    max-height: 500px;
+    margin: 0 auto;
 }
 .carousel-indicators,
 .carousel-control{
@@ -50,7 +66,48 @@ article{
 #homeSlider:hover .carousel-control{
     display: block;
 }
+#homeSlider:hover .carousel-caption{
+    display: none;
+}
 
+/*VRAAG EN ANTWOORD*/
+.vraag ul, .antwoord ul{
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+    list-style-type: none;
+}
+.vraag li, .antwoord li{
+    padding: 10px;
+}
+.vraag li{
+    text-align: right;
+}
+.antwoord li{
+    text-align: left;
+}
+
+/*FORM GENERAL*/
+.formBackground{
+    background: lightgray;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*AFSPRAAK FORM*/
+.time{
+    width: 34%;
+}
+
+.devider{
+    width: 4%;
+
+    font-weight: bolder;
+    font-size: 1.5em;
+
+    margin: 0px 1px 0px 1px;
+}
 
 /*AANMELD FORM*/
 
@@ -58,6 +115,8 @@ article{
 /*USERPOST*/
 .postSection{
     background: #3e3e3e;
+
+    padding: 10px;
 }
 .userPost{
     padding: 10px;
@@ -88,13 +147,13 @@ article{
     min-width: 250px;
     padding: 14px 14px 0px;
     overflow: hidden;
-    background-color:rgba(255,255,255, 0.8);
+    /*background-color:rgba(255,255,255, 0.8);*/
 }
 #login-dp .help-block{
     font-size:12px;   
 }
 #login-dp .bottom{
-    background-color:rgba(255,255,255, 0.8);
+    /*background-color:rgba(255,255,255, 0.8);*/
     border-top:1px solid #ddd;
     clear: both;
     padding:14px;
@@ -125,35 +184,73 @@ article{
     background-color:#59b5fa;
 }
 
+/*FOOTER*/
+.footer{
+    padding: 15px;
+
+    color: #cba;
+    background: #800000;
+}
+footer ul{
+    list-style-type: none;
+}
+footer ul h5{
+    font-size: 1.2em;
+}
+footer a{
+    color: whitesmoke;
+    line-height: 1.1em;
+}
+footer ul li a:hover {
+    text-decoration: none;
+    color: steelblue;
+}
+footer > div > ul{
+    padding: 10px 0px;
+    padding-left: 15px;
+}
+footer > div:first-of-type > ul{
+    border: 0px solid transparent;
+}
+footer > div > ul{
+    min-height: 85px;
+    border-left: solid black 1px;
+}
+span[class*="flaticon"]{
+    display: inline;
+    line-height: 30px;
+}
+.flaticon-twittericon{
+    
+}
+
 /*MEDIA*/
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
-@media (max-width: 768px) {
-    #login-dp{
-        background-color: inherit;
-        color: #fff;
-    }
-    #login-dp .bottom{
-        background-color: inherit;
-        border-top: 0px none transparant;
-    }
-}
-
 /* Small devices (tablets, 768px and up) */
-@media (min-width: @screen-sm-min) {
+@media (min-width: 768px) {
+    #homeSlider{
+        margin-left: 15px;
+    }
     article{
         margin-left: auto;
         margin-right: auto;
+
+        padding-top: 10px;
     }
+    article:first-of-type{
+        margin-top: 0px;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: @screen-md-min) {
+@media (min-width: 992px) {
 
 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: @screen-lg-min) {
+@media (min-width: 1200px) {
 
 }

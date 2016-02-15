@@ -2,8 +2,7 @@
   include 'header.php';
 ?>
         <section class="formBackground container-fluid col-md-12">
-          <h2>Maak een nieuw beheerders account aan</h2>
-            <form class="form form-horizontal" method="post" action="addUser.php" autocomplete="on"><!--on submit run addUser.php (which adds a user)-->
+            <form class="form form-horizontal" method="post" action="afspraakNaarDB.php" autocomplete="on"><!--on submit run addUser.php (which adds a user)-->
                 <div class="form-group">
                     <label for="FirstName" class="col-sm-2 control-label">Voornaam:</label>
                     <div class="col-sm-8 col-sm-2-pull">
@@ -23,9 +22,64 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="DOB" class="col-sm-2 control-label">Geboortedatum:</label>
-                    <div class="col-sm-8 col-sm-2-pull">
-                        <input required type="date" name="DOB" id="DOB" class="form-control">
+                    <label for="datumAfspraak" class="col-xs-2 control-label">Datum:</label>
+                    <div class="col-xs-3">
+                        <input required type="date" value="<?php 
+                          $getdate = getdate();
+                          $dateString = "";
+                          $day = $getdate['wday'];
+                          $month = $getdate['mon'];
+                          if( $day < 10){
+                            $dayString = "0".$day;
+                          } else {
+                            $dayString = $day;
+                          }
+                          if( $month < 10){
+                            $monthString = "0".$month;
+                          } else {
+                            $monthString = $month;
+                          }
+
+                          $dateString = $getdate['year']."-".$monthString."-".$dayString;
+                          echo  $dateString;
+                        ?>" name="datumAfspraak" id="datumAfspraak" class="form-control">
+                    </div>
+                    <label for="tijdAfspraakUur" class="col-xs-1 control-label">Tijd:</label>
+                    <div class="col-xs-5">
+                      <select name="tijdAfspraakUur" id="tijdAfspraakUur" class="col-xs-1 form-control time">
+                      <?php
+                      $openingsTijd;
+                      $sluitingsTijd;
+                      switch($day){
+                        //sunday
+                        case 0:
+                          $openingsTijd = '9';
+                          $sluitingsTijd = 13;
+                          break;
+                        default:
+                          $openingsTijd = '7';
+                          $sluitingsTijd = 18;
+                      }
+
+                      for($i = $openingsTijd; $i < $sluitingsTijd; $i++){
+                        if($i < 10){
+                          $tijdNotatie = '0'.$i;
+                        } else {
+                          $tijdNotatie = $i;
+                        }
+                       echo "<option value='".$tijdNotatie."'>".$tijdNotatie."</option>";
+                      }
+                      ?>
+                      </select>
+                      <span class="col-xs-1 devider">:</span>
+                      <select name="tijdAfspraakMin" id="tijdAfspraakMin" class="col-xs-1 form-control time">
+                        <option value="00">00</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -62,18 +116,6 @@
                     <label for="Mail" class="col-sm-2 control-label">E-mail:</label>
                     <div class="col-sm-8 col-sm-2-pull">
                         <input required type="text" name="Mail" id="Mail" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="username" class="col-sm-2 control-label">Username:</label>
-                    <div class="col-sm-8 col-sm-2-pull">
-                        <input required type="text" name="username" id="username" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="Password" class="col-sm-2 control-label">Password:</label>
-                    <div class="col-sm-8 col-sm-2-pull">
-                        <input required type="password" name="Password" id="Password" class="form-control">
                     </div>
                 </div>
                 <div class="col-sm-9">
