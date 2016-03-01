@@ -1,12 +1,28 @@
 window.onload = function(){
 	for(var i = 0; i < document.getElementsByTagName('table').length; i++){
         var element = document.getElementsByClassName(i)[0];
-        element.style.border = "#111 dashed";
-        var color = getRandomColor();
-   		element.style.background = color;
-   		//element.style.color = invert(color);
-   		element.style.color = '#000';
+        if(element != undefined){
+        	element.style.border = "#111 dashed";
+	        var color = getRandomColor();
+	   		element.style.background = color;
+	   		//element.style.color = invert(color);
+	   		element.style.color = '#000';
+	   	}
     }
+
+    $('.updateInit').click(function(){
+		$(this).closest('form').children('input').not('.exclude').removeAttr('disabled');
+
+		$(this).closest('form').find('.updateInit').addClass('hidden');
+		$(this).closest('form').find('.updateCommit').removeClass('hidden');
+	});
+
+    $('.updateCommit').click(function(){
+
+    	$(this).closest('form').find('.updateCommit').addClass('hidden');
+		$(this).closest('form').find('.updateInit').removeClass('hidden');
+    });
+};
 
     function getRandomColor() {
 	    var letters = '0123456789ABCDEF'.split('');
@@ -26,4 +42,5 @@ window.onload = function(){
 
 	    return color;
 	}
-};
+
+	

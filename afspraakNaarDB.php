@@ -11,13 +11,14 @@ $postal = $_POST['Postal'];
 $city = $_POST['City'];
 $pnumber = $_POST['Number'];
 $email = $_POST['Mail'];
+$redenAfspraak = $_POST['redenAfspraak'];
 
 // Poging gegevens invoegen in de table van de database
 //Niet nodig omdat aangeroepen vanuit ander file 
 //if (isset($_POST['post'])){
-	$sql = $db->prepare("INSERT INTO `afspraken` (name, middleName, lastName, email, appDateTime, street, streetnum, postal, place, phoneNum)
+	$sql = $db->prepare("INSERT INTO `afspraken` (name, middleName, lastName, email, appDateTime, street, streetnum, postal, place, phoneNum, redenAfspraak)
 	VALUES ('$first_name', '$middle_name', '$last_name', '$email', '$appDateTime', '$street', '$streetnr', '$postal'
-	, '$city', '$pnumber');");
+	, '$city', '$pnumber', '$redenAfspraak');");
 
 	//executes the given query above
 	$sql->execute();

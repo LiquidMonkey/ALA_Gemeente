@@ -1,21 +1,134 @@
+*{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 body{
+    color: #3e3e3e;
     background: #531017;
 }
 
+article{
+    padding-bottom: 20px;
+    min-height: 350px ;
+
+    background: #3e3e3e;
+    text-align: center;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote p {
+  display: inline;
+}
+blockquote img{
+    display: block;
+    margin-left: 15%;
+    width: 200px;
+}
+.jumbotron h1 span{
+    display: block;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/* For when i have fixed top navbar
+.fix-fixed{
+    margin-top: 70px;
+
+}*/
+
+.background{
+    background: #3e3e3e;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+/*IMG HEADER*/
+.img-header{
+    background: #3e3e3e;
+    padding: 5px 5px 20px 5px;
+}
+
+/*Welkom BIGIMG*/
+.bigImage{
+    padding: 10px;
+    background: lightgray;
+}
+.bigImage img{
+    border: 1px solid darkgray;
+    width: 100%;
+
+    text-align: center;
+}
+.bigImageFrame{
+    padding: 0px 20px 0px 20px;
+}
+.bigImageText{
+    padding: 5px;
+    background: lightgray;
+}
+.bigImageText h4{
+    padding-left: 28px;
+}
+
+/*NAVBAR*/
+a.lang{
+    display: block;
+
+    width: 90px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+a.lang:hover{
+    cursor: pointer;
+}
+a.lang.nl{
+    background: url("../media/flag_nl.png") center center no-repeat;
+    background-size: contain;
+}
+a.lang.en{
+    background: url("../media/flag_en.png") center center no-repeat;
+    background-size: contain;
+}
+
+.navbar{
+    background: #531017;
+    margin-bottom: 1px;
+    border-color: black;
+}
+.navbar-default .navbar-nav > li > a{
+   color: #CFCFCF;
+}
+.navbar-default .navbar-nav > li:hover > a{
+    background: #410516;
+    color: white;
+}
+.navbar-nav > li.active > a{
+   background: #410516!important;
+   color: white!important;
+}
 .navbar-brand{
     padding: 0px;
 }
+
 .logo-img{
     margin-left: 4px;
     margin-right: 1px;
-    width: 55px;
-    height: 55px;
+    width: 52px;
+    height: 52px;
     display: inline-block;
 
     background: url('../media/logo.jpg') center center no-repeat;
     background-size: contain;
 }
 .logo-text{
+    color: white;
     display: inline-block;
 
     position: relative;
@@ -24,14 +137,35 @@ body{
     margin: 2px 6px;
 }
 
-article{
-    min-height: 467px;
-
-	background: #3e3e3e;
-	text-align: center;
+/*INFORMATIE BUTTONS SECTIE*/
+.heightBond{
+    height: 100%;
+    padding: 0px;
+    background: #3e3e3e;
 }
 
-/*afspraak maken*/
+.informatiePaginas{
+    padding-top: 5%;
+    min-height: 100%;
+}
+.informatiePaginas div{
+    padding: 20px;
+}
+.informatiePaginas div a.btn{
+    width: 300px;
+    height: 50px;
+
+    line-height: 35px;
+}
+
+.inline li{
+    display: inline;
+}
+.inline li:last-of-type{
+    display: block;
+}
+
+/*afspraak maken button has been removed and replaced by a normal btn
 .afspraakButton{
     width: 100%;
     height: 300px;
@@ -47,17 +181,57 @@ article{
     color: #800000;
     background: url('../media/conversationInverse.png') center center no-repeat;
     background-size: contain;
-}
+}*/
 
 /*Carousel (#homeSlider)*/
+.carouselContainer{
+    height: 400px;
+}
 #homeSlider{
-    background: white;
+    /*margin-top: 50px;
+    position: fixed;
+    top: 0px;*/
+    width: 100%;
+
+    background: #531017;
 }
 .carousel-inner img{
-    min-height: 500px;
-    max-height: 500px;
+    width: auto;
+    min-height: 400px;
+    max-height: 400px;
     margin: 0 auto;
 }
+.carousel-inner{
+    overflow: hidden;
+}
+
+.carousel-indicators li{
+    border-color: darkslategray;
+}
+.carousel-indicators li.active{
+    background: darkslategray;
+}
+.carousel-indicators li:hover{
+    background: black;
+}
+ 
+.carousel-control.left{
+    background-size: auto 100%;
+    background-position: right;
+}
+.carousel-control.right{
+    background-size: auto 100%;
+    background-position: left;
+}
+.carousel-control{
+    /*width: 0px;*/
+    color: darkslategrey;
+}
+.carousel-control:hover{
+    color: black;
+}
+
+/*
 .carousel-indicators,
 .carousel-control{
     display: none;
@@ -66,53 +240,40 @@ article{
 #homeSlider:hover .carousel-control{
     display: block;
 }
-#homeSlider:hover .carousel-caption{
-    display: none;
-}
-
-/*VRAAG EN ANTWOORD*/
-.vraag ul, .antwoord ul{
-    color: white;
-    font-weight: bold;
-    font-size: 1.6em;
-    list-style-type: none;
-}
-.vraag li, .antwoord li{
-    padding: 10px;
-}
-.vraag li{
-    text-align: right;
-}
-.antwoord li{
-    text-align: left;
-}
-
+*/
 /*FORM GENERAL*/
 .formBackground{
+    color: darkslategrey;
     background: lightgray;
 
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.form-control{
+    padding: 6px 6px;
+}
 
 /*AFSPRAAK FORM*/
 .time{
-    width: 34%;
+    padding-left: 0px;
 }
-
+.time:first-child:first-child{
+    width: 100%;
+}
+.time div{
+    width: 200px;
+    padding: 0px;
+}
 .devider{
-    width: 4%;
-
+    padding: 0px 5px;
     font-weight: bolder;
     font-size: 1.5em;
-
-    margin: 0px 1px 0px 1px;
 }
 
 /*AANMELD FORM*/
 
 
-/*USERPOST*/
+/*GemeentePost*/
 .postSection{
     background: #3e3e3e;
 
@@ -189,7 +350,7 @@ article{
     padding: 15px;
 
     color: #cba;
-    background: #800000;
+    background: #531017;
 }
 footer ul{
     list-style-type: none;
@@ -218,10 +379,8 @@ footer > div > ul{
 }
 span[class*="flaticon"]{
     display: inline;
-    line-height: 30px;
-}
-.twitterIcon{
-    background: url('../media/twitter.png');
+
+    font-size: 300%;
 }
 
 /*MEDIA*/
@@ -230,18 +389,6 @@ span[class*="flaticon"]{
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    #homeSlider{
-        margin-left: 15px;
-    }
-    article{
-        margin-left: auto;
-        margin-right: auto;
-
-        padding-top: 10px;
-    }
-    article:first-of-type{
-        margin-top: 0px;
-    }
 }
 
 /* Medium devices (desktops, 992px and up) */

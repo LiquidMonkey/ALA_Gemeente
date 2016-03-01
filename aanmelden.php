@@ -76,15 +76,16 @@
                         <input required type="password" name="Password" id="Password" class="form-control">
                     </div>
                 </div>
-                <div class="col-sm-9">
-                    
-                </div>
-                <div class="col-sm-3 col-sm-9-push">
+                <div class="col-sm-3 col-sm-offset-9">
                     <button type="submit" name="post" class="btn btn-default">Zend</button>
                 </div>
                 
             </form>
         </section>
+
+        <?php
+            include 'footer.php';
+        ?>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

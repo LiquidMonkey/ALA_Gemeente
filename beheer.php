@@ -76,40 +76,9 @@
           </div>
         </div><!--End of row-->
       </article>
-
-<!--======================= Afspraak maken =======================-->    
-
-      <article class="col-xs-12">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-          <div class="relativePositioner"></div>
-          <a class="afspraakButton btn" href="afspraakFormulier.php">Afspraak maken</a>
-        </div>
-        <div class="col-xs-2"></div>
-      </article>
-
-<!--======================= Vragen section =======================-->
-
-      <article class="col-xs-12">
-        <div class="col-xs-12 text-center">
-          <div class="col-xs-6 vraag">
-            <ul>
-              <li>Hoe maak ik een afspraak?</li>
-            </ul>
-          </div>
-          <div class="col-xs-6 antwoord">
-            <ul>
-              <li>Klik op de knop "afspraak maken" die zich hierboven bevind</li>
-            </ul>
-          </div>
-        </div>
-      </article>
     </section>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <?php
+      include 'footer.php';
+    ?>
   </body>
 </html>

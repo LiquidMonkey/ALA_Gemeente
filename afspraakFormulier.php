@@ -23,11 +23,11 @@
                 </div>
                 <div class="form-group">
                     <label for="datumAfspraak" class="col-xs-2 control-label">Datum:</label>
-                    <div class="col-xs-3">
-                        <input required type="date" value="<?php 
+                    <div class="col-xs-6 col-sm-3">
+                        <input required type="date" value=<?php 
                           $getdate = getdate();
                           $dateString = "";
-                          $day = $getdate['wday'];
+                          $day = $getdate['mday'];
                           $month = $getdate['mon'];
                           if( $day < 10){
                             $dayString = "0".$day;
@@ -41,45 +41,71 @@
                           }
 
                           $dateString = $getdate['year']."-".$monthString."-".$dayString;
-                          echo  $dateString;
-                        ?>" name="datumAfspraak" id="datumAfspraak" class="form-control">
+                          echo  "'". $dateString . "'";
+                        ?> name="datumAfspraak" id="datumAfspraak" class="form-control">
                     </div>
-                    <label for="tijdAfspraakUur" class="col-xs-1 control-label">Tijd:</label>
-                    <div class="col-xs-5">
-                      <select name="tijdAfspraakUur" id="tijdAfspraakUur" class="col-xs-1 form-control time">
-                      <?php
-                      $openingsTijd;
-                      $sluitingsTijd;
-                      switch($day){
-                        //sunday
-                        case 0:
-                          $openingsTijd = '9';
-                          $sluitingsTijd = 13;
-                          break;
-                        default:
-                          $openingsTijd = '7';
-                          $sluitingsTijd = 18;
-                      }
-
-                      for($i = $openingsTijd; $i < $sluitingsTijd; $i++){
-                        if($i < 10){
-                          $tijdNotatie = '0'.$i;
-                        } else {
-                          $tijdNotatie = $i;
+                    <div class="col-xs-12 col-sm-5 time">
+                      <label for="tijdAfspraakUur" class="col-xs-2 control-label">Tijd:</label>
+                      <div class="col-xs-2">
+                        <select name="tijdAfspraakUur" id="tijdAfspraakUur" class="form-control">
+                        <?php
+                        $openingsTijd;
+                        $sluitingsTijd;
+                        $day = getdate();
+                        switch($day['wday']){
+                          //sunday
+                          case 0:
+                            $openingsTijd = '0';
+                            $sluitingsTijd = 0;
+                            $openingsTijd = 'gesloten';
+                            break; //Zijn dicht
+                          case 1:
+                            $sluitingsTijd = 16;//30
+                            break;
+                          case 2:
+                            $sluitingsTijd = 21;
+                            break;
+                          case 3:
+                            $sluitingsTijd = 16;//30
+                            break;
+                          case 4:
+                            $sluitingsTijd = 21;
+                          case 5:
+                            $sluitingsTijd = 16;//30
+                          case 6:
+                            $openingsTijd = '0';
+                            $sluitingsTijd = '0';
+                          //dicht
+                          default:
+                            $openingsTijd = '9';
+                            $sluitingsTijd = 18;
                         }
-                       echo "<option value='".$tijdNotatie."'>".$tijdNotatie."</option>";
-                      }
-                      ?>
-                      </select>
-                      <span class="col-xs-1 devider">:</span>
-                      <select name="tijdAfspraakMin" id="tijdAfspraakMin" class="col-xs-1 form-control time">
-                        <option value="00">00</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                      </select>
+                        if($openingsTijd != gesloten){
+                          for($i = $openingsTijd; $i < $sluitingsTijd; $i++){
+                            if($i < 10){
+                              $tijdNotatie = '0'.$i;
+                            } else {
+                              $tijdNotatie = $i;
+                            }
+                           echo "<option value='".$tijdNotatie."'>".$tijdNotatie."</option>";
+                          }
+                        } else {
+                          echo "<option value=''>Gesloten</option>";
+                        }
+                        ?>
+                        </select>
+                      </div>
+                      <span class="pull-left devider">:</span>
+                      <div class="col-xs-2">
+                        <select name="tijdAfspraakMin" id="tijdAfspraakMin" class="form-control">
+                          <option value="00">00</option>
+                          <option value="10">10</option>
+                          <option value="20">20</option>
+                          <option value="30">30</option>
+                          <option value="40">40</option>
+                          <option value="50">50</option>
+                        </select>
+                      </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -118,15 +144,34 @@
                         <input required type="text" name="Mail" id="Mail" class="form-control">
                     </div>
                 </div>
-                <div class="col-sm-9">
-                    
+                <div class="col-md-offset-2 col-md-8">
+                  <h3>Reden van afspraak</h3>
                 </div>
-                <div class="col-sm-3 col-sm-9-push">
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-8">
+                    <label for="bevolking"><input type="radio" checked="true" value="bevolking" id="bevolking" name="redenAfspraak">Uittreksel bevolkingsregister</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-8">
+                    <label for="paspoort"><input type="radio" value="paspoort" id="paspoort" name="redenAfspraak">Paspoort aanvragen</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-8">
+                    <label for="kapvergunning"><input type="radio" value="kapvergunning" id="kapvergunning" name="redenAfspraak">Kapvergunning aanvragen</label>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-sm-offset-7">
                     <button type="submit" name="post" class="btn btn-default">Zend</button>
                 </div>
                 
             </form>
         </section>
+
+        <?php
+          include 'footer.php';
+        ?>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
