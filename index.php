@@ -50,7 +50,7 @@
               <div class="col-md-12 text-left postSection">
                 <div class="userPost">
                   <div class="userDetails">
-                    <h4><p class="userName">Gemeente bordeaux</p> <small>Gepost op 21-3-2016</small></h4>
+                    <h4><span class="userName">Gemeente bordeaux</span> <small>Gepost op 21-3-2016</small></h4>
                   </div>
                   <div class="userComment">
                     <p>Vandaag is er een nieuwe wet ingesteld voor het maken van een afspraak bij de gemeente. U moet vanaf nu aangeven waarvoor de afspraak is, tijdens het maken van de afspraak (dit kan ook op deze website).</p>
@@ -58,11 +58,10 @@
                 </div><!--End of post--> 
               </div><!--End of commentsection-->
             </article>
-
-  <!--======================= Afspraak maken =======================-->    
+ 
           <article class="col-xs-12 col-md-6 informatiePaginas">
             <div class=" col-xs-12">
-              <a class="btn btn-default" src="afspraakFormulier.php">Afspraak maken</a>
+              <a class="btn btn-default" href="afspraakFormulier.php">Afspraak maken</a>
             </div>
             <div class="col-md-12 col-xs-12">
               <a class="btn btn-default" href="uitleg.php">Toeristen pagina</a>
@@ -71,7 +70,6 @@
         </div>
       </div><!--End of row-->
     </section>
-
 
     <?php
       include_once('footer.php');

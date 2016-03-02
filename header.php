@@ -30,8 +30,7 @@
     <![endif]-->
   </head>
   <body>
-    <!--======================================== beginning of nav =======================================-->
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -99,6 +98,6 @@
                 }
               //}
             ?>
+          </div>
         </div>
       </nav>
-      <!--========================================== End of nav ========================================-->
